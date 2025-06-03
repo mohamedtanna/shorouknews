@@ -1,0 +1,86 @@
+<app-header BackUrl="/videos">
+</app-header>
+
+<ion-content *ngIf="video">
+    <!-- Breadcrumb -->
+    <ul class="breadcrumb">
+        <li>
+            <a routerLink="/home">الرئيسية</a>
+            <span class="arrow-back">&#62;</span>
+        </li>
+        <li class="active">
+            <a routerLink="/videos">فيديو</a>
+        </li>
+    </ul>
+  
+    <div class="vedio-box">
+        <ion-thumbnail item-start margin-right (click)="openVideo()">
+            <img [src]="videoImage" >
+            <img src="/assets/images/Icons/SVG/video.svg" class="video-icon">
+        </ion-thumbnail>
+     
+    </div>
+    <ion-card class="main">
+        <h4>
+            {{video.Title}} </h4>
+    </ion-card>
+
+    <section class="news-dates">
+        <div class="publish-date">
+            <p>
+                <ion-icon name="calendar"></ion-icon>
+                <span>{{video.PublishDate_FormattedDate}}</span>
+            </p>
+        </div>
+        <div class="share-area" text-align-center>
+            <ion-button color="tertiary" fill="outline" (click)="shareVideo(video.Description,video.Title,video.CanonicalUrl)">
+                <ion-icon class="share-icon" slot="start" color="tertiary" name="share"></ion-icon>
+            </ion-button>
+        </div>
+    </section>
+    <div class="full-news">
+        <p ion-text [innerHTML]="video.Description | decodeHtml">
+        </p>
+    </div>
+    <section class="news-section" color="primary">
+        <ion-grid class="subheader">
+            <ion-row align-items-center>
+                <ion-col size="9" class="title">
+                    <img class="svg-icon" src="/assets/images/Icons/SVG/read.svg" alt="">
+                    <h4>المزيد من الفيديوهات</h4>
+                </ion-col>
+                <ion-col size="3" class="more-btn">
+                    <ion-button class="more" color=" " routerLink="/videos">
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                        المزيد
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-list no-padding no-lines>
+            <ion-item no-lines no-padding *ngFor="let item of videos" [hidden]="item.ID===video.ID" routerLink="/video-details/{{item.ID}}"
+                tappable>
+                <ion-thumbnail item-start margin-right>
+                    <img src="{{item.ThumbUrl}}">
+                    <img class="video-icon" src="/assets/images/Icons/SVG/video.svg" alt="">
+                </ion-thumbnail>
+
+                <div class="news-info">
+                    <p>
+                        {{item.Title}} </p>
+                    <div class="news-date">
+                        <div align-items-right>
+                            <div class="day">
+                                <ion-icon name="calendar"></ion-icon>
+                                <span>{{item.PublishDate_FormattedDate}} </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </ion-item>
+
+        </ion-list>
+    </section>
+
+</ion-content>

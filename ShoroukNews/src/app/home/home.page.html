@@ -1,0 +1,176 @@
+<app-header (change)=refreshPage($event)></app-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="loadData($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-card class="ads--card">
+        <dfp-ad adUnit="/21765378867/ShorouknewsApp_LeaderBoard1" responsive>
+            <dfp-size [width]="320" [height]="50"></dfp-size>
+            <dfp-responsive [viewport]="[768,0]" [adSizes]="[[728,90]]"></dfp-responsive>
+        </dfp-ad>
+    </ion-card>
+    <ion-card class="main" routerLink="/news-details/{{firstMainStory.CDate}}/{{firstMainStory.ID}}" *ngIf="firstMainStory" tappable>
+        <img src="{{firstMainStory.PhotoUrl}}" />
+        <div class="card-overlay">
+            <div class="card-info">
+                <h2>{{firstMainStory.Title}}</h2>
+            </div>
+        </div>
+    </ion-card>
+    <ion-grid class="important-news">
+        <ion-row>
+            <ion-col size="6" *ngFor="let story of mainStories | slice:1; let i = index;" routerLink="/news-details/{{story.CDate}}/{{story.ID}}" tappable>
+                <ion-card class="others">
+
+                    <img src="{{story.PhotoUrl}}" />
+                    <div class="card-overlay">
+                        <div class="card-info">
+                            <h6>{{story.Title}}</h6>
+                        </div>
+                    </div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-card class="ads--card">
+        <dfp-ad adUnit="/21765378867/ShorouknewsApp_Banner1" responsive>
+            <dfp-size [width]="320" [height]="100"></dfp-size>
+            <dfp-responsive [viewport]="[768,0]" [adSizes]="[[728,90]]"></dfp-responsive>
+        </dfp-ad>
+    </ion-card>
+
+
+    <section class="news-section" color="primary">
+        <ion-grid class="subheader">
+            <ion-row align-items-center>
+
+                <ion-col size="9" class="title">
+                    <img class="svg-icon" src="/assets/images/Icons/SVG/Trend.svg" alt="">
+                    <h4>
+                        أهم الأخبار
+                    </h4>
+                </ion-col>
+                <ion-col size="3" class="more-btn">
+                    <ion-button class="more" color=" " routerLink="/list-of-news/null/أحدث الأخبار">
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                        المزيد
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-list no-padding>
+            <ion-item full no-padding *ngFor="let news of topStories | slice:0:5; let i=index" routerLink="/news-details/{{news.CDate}}/{{news.ID}}" tappable>
+                <ion-thumbnail item-start margin-right>
+                    <img src="{{news.PhotoUrl}}">
+                </ion-thumbnail>
+
+                <div class="news-info">
+                    <p> {{news.Title}} </p>
+                    <div class="news-date">
+                        <div align-items-right>
+                            <div class="day">
+                                <ion-icon name="calendar"></ion-icon>
+                                <span> {{news.PublishDate_FormattedDate}} - {{news.PublishDate_FormattedTime}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </section>
+
+    <ion-card class="ads--card">
+        <ion-card class="ads--card">
+            <dfp-ad adUnit="/21765378867/ShorouknewsApp_Banner2" responsive>
+                <dfp-size [width]="300" [height]="250"></dfp-size>
+                <dfp-responsive [viewport]="[768,0]" [adSizes]="[[728,90]]"></dfp-responsive>
+            </dfp-ad>
+        </ion-card>
+    </ion-card>
+    <section class="Important-articles-section" color="primary">
+        <ion-grid class="subheader">
+            <ion-row align-items-center>
+
+                <ion-col size="9" class="title">
+                    <img class="svg-icon" src="/assets/images/Icons/SVG/articles.svg" alt="">
+                    <h4>مقالات مختارة</h4>
+                </ion-col>
+
+                <ion-col size="3" class="more-btn">
+                    <ion-button class="more" routerLink="/columns/null">
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                        المزيد
+                    </ion-button>
+                </ion-col>
+
+            </ion-row>
+        </ion-grid>
+        <ion-list no-padding color="primary" lines="none">
+            <ion-item *ngFor="let column of selectedColumns" no-padding lines="none" tappable routerLink="/column-details/{{column.CDate}}/{{column.ID}}">
+                <ion-avatar slot="start">
+                    <ion-img src="{{column.ColumnistPhotoUrl}}"></ion-img>
+                    <!-- <img-loader  [src]="column.ColumnistPhotoUrl" ></img-loader> -->
+                </ion-avatar>
+                <ion-label>
+                    <p>{{column.Title}}</p>
+                    <h6 class="author-name">{{column.ColumnistAr_Name}}</h6>
+                    <h4 class="article-date">{{column.CreationDate_FormattedDate}}</h4>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </section>
+
+    <ion-card class="ads--card">
+
+        <div class="speakol-widget" id="spk-wi-2411"></div>
+    </ion-card>
+   
+    <div style="padding:1px; background-color: white"></div>
+
+    <section class="news-section" color="primary">
+        <ion-grid class="subheader">
+            <ion-row align-items-center>
+                <ion-col size="12" class="title">
+                    <img class="svg-icon" src="/assets/images/Icons/SVG/speaker.svg" alt="">
+                    <h4>الأكثر قراءة</h4>
+                </ion-col>
+
+                <!-- <ion-col size="3" class="more-btn">
+                    <ion-button class="more" color="tertiary" routerLink="#.">
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                        المزيد
+                    </ion-button>
+                </ion-col> -->
+            </ion-row>
+        </ion-grid>
+        <ion-list no-padding no-lines>
+            <ion-item *ngFor="let mostread of mostreadStories" full no-padding routerLink="/news-details/{{mostread.CDate}}/{{mostread.ID}}" tappable>
+                <ion-thumbnail item-start margin-right>
+                    <img src="{{mostread.PhotoUrl}}">
+                    <!-- <img-loader [src]="top.PhotoUrl" ></img-loader> -->
+                </ion-thumbnail>
+
+                <div class="news-info">
+                    <p>
+                        {{mostread.Title}}
+                    </p>
+
+                    <div class="news-date">
+                        <div align-items-right>
+                            <div class="day">
+                                <ion-icon name="calendar"></ion-icon>
+                                <span>{{mostread.CreationDate_FormattedDate}} - {{mostread.CreationDate_FormattedTime}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </ion-item>
+        </ion-list>
+    </section>
+</ion-content>

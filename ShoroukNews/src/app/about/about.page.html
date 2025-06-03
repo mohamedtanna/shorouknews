@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<ion-content>
+    <ion-card class="ads--card">
+        <dfp-ad adUnit="/21765378867/ShorouknewsApp_LeaderBoard2" responsive>
+            <dfp-size [width]="320" [height]="50"></dfp-size>
+            <dfp-responsive [viewport]="[768,0]" [adSizes]="[[728,90]]"></dfp-responsive>
+        </dfp-ad>
+    </ion-card>
+
+    <!-- Breadcrumb -->
+    <ul class="breadcrumb">
+        <li>
+            <a routerLink="/home">الرئيسية</a>
+            <span class="arrow-back">&#62;</span>
+        </li>
+        <li class="active">عن البرنامج</li>
+    </ul>
+    <!-- end Breadcrumb -->
+
+    <div class="about-area" padding>
+        <h2>عن برنامج جريدة الشروق الإلكتروني</h2>
+        <p>
+            البرنامج الرسمي لجريدة الشروق المصرية
+        </p>
+        <p (click)="onClickAppVersion()">
+            إصدار {{_appVersion}}
+        </p>
+        <ion-grid class="about">
+            <ion-row>
+                <ion-col size="8">
+                    <h3>برمجة وتصميم برايلاند</h3>
+                </ion-col>
+
+                <ion-col size="4">
+                    <a onclick="window.open('http://www.priland.com/', '_system', 'location=yes');return false;" target="_blank">
+                        <img src="assets/images/priland-logo.png" alt="priland">
+                    </a>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

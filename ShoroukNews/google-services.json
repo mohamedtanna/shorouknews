@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "767709623298",
+    "firebase_url": "https://shorouknewsapp.firebaseio.com",
+    "project_id": "shorouknewsapp",
+    "storage_bucket": "shorouknewsapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767709623298:android:90be0bb60cdde4d8",
+        "android_client_info": {
+          "package_name": "com.priland.shorouknews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767709623298-hs18a6r1vhh92ioj93735i48vhop9n3s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.priland.shorouknews",
+            "certificate_hash": "74b6e834011a918705a4d8517453a1b9f1368498"
+          }
+        },
+        {
+          "client_id": "767709623298-7b4g4hg10m9ngk2eais8etqu74uecphd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1i3Ki72lbZz8VRdZFW331PmYUsSPT0EY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767709623298-7b4g4hg10m9ngk2eais8etqu74uecphd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "767709623298-5b54gsc63knu6nubu9rcsjeoi9dp3uvh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.priland.shorouknews"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-7072246965452303~2970031080"
+    }
+  ],
+  "configuration_version": "1"
+}

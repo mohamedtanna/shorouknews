@@ -1,0 +1,112 @@
+<app-header BackUrl="/columns/null"></app-header>
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="loadData($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-card class="ads--card">
+        <dfp-ad adUnit="/21765378867/ShorouknewsApp_LeaderBoard2">
+            <dfp-size [width]="320" [height]="50"></dfp-size>
+            <dfp-responsive [viewport]="[768,0]" [adSizes]="[[728,90]]"></dfp-responsive>
+        </dfp-ad>
+    </ion-card>
+    <!-- Breadcrumb -->
+    <ul class="breadcrumb">
+        <li>
+            <a routerLink="/home">الرئيسية</a>
+            <span class="arrow-back">&#62;</span>
+        </li>
+        <li>
+            <a routerLink="/columns/null">رأي ومقالات</a>
+        </li>
+
+    </ul>
+    <!-- end Breadcrumb -->
+    <div class="article-area" *ngIf="column_details">
+        <ion-item no-padding lines="none" class="author-details" routerLink="/author/{{column_details.ColumnistID}}" tappable>
+            <ion-avatar slot="start">
+                <ion-img class="author-img" src="{{column_details.ColumnistPhotoUrl}}"></ion-img>
+            </ion-avatar>
+            <ion-label>
+                <h2>
+                    <ion-icon name="person"></ion-icon>
+                    {{column_details.ColumnistAr_Name}}
+                </h2>
+
+                <p class="day">
+                    <ion-icon name="calendar"></ion-icon>
+                    <span>{{column_details.CreationDate_FormattedDateTime}}</span>
+                </p>
+            </ion-label>
+        </ion-item>
+
+        <div class="column_details-Title">
+            <p class="subheader-title">{{column_details.Title}}</p>
+        </div>
+
+        <ion-item class="reading-tools-area">
+            <!-- reading-tools -->
+            <ul class="reading-tools">
+                <li class="maximize">
+                    <a (click)="increaseFont();">+ع</a>
+                </li>
+                <li class="minimize">
+                    <a (click)="decreaseFont();">-ع</a>
+                </li>
+                <li class="share">
+                    <a (click)="shareArticle(column_details.Title,column_details.Summary,column_details.CanonicalUrl)">
+                        <ion-icon class="share-icon" slot="start" color="tertiary" name="share"></ion-icon>
+                        مشاركة
+                    </a>
+                </li>
+            </ul>
+            <!-- end reading-tools -->
+        </ion-item>
+
+        <section class="article" [style.font-size.px]="fontsize">
+            <p class="dynamic-links" ion-text [innerHtml]="column_details.Body | decodeHtml:el">
+            </p>
+        </section>
+
+        <div class="share-area" text-align-center>
+            <ion-button color="tertiary" fill="outline" (click)="shareArticle(column_details.Title,column_details.Summary,column_details.CanonicalUrl)">
+                <ion-icon class="share-icon" slot="start" color="tertiary" name="share"></ion-icon>
+                مشاركة
+            </ion-button>
+        </div>
+
+        <ion-card class="ads--card">
+            <div class="speakol-widget" id="spk-wi-2467"></div>
+        </ion-card>
+
+
+        <section class="Important-articles-section" color="primary">
+            <ion-grid class="subheader">
+                <ion-row align-items-center>
+
+                    <ion-col size="9" class="title">
+                        <img class="svg-icon" src="/assets/images/Icons/SVG/articles.svg" alt="">
+                        <h4>المزيد من مقالات الكاتب</h4>
+                    </ion-col>
+
+                    <ion-col size="3" class="more-btn">
+                        <ion-button class="more" color=" " routerLink="/author/{{column_details.ColumnistID}}">
+                            <ion-icon name="add-circle-outline"></ion-icon>
+                            المزيد
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+            <div class="article-area" *ngFor="let column of columns" [hidden]="column_details.ID==column.ID" routerLink="/column-details/{{column.CDate}}/{{column.ID}}"
+                tappable>
+                <p>{{column.Title}} </p>
+                <div class="article-date">
+                    <ion-icon name="calendar"></ion-icon>
+                    <span> {{column.CreationDate_FormattedDate}}</span>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</ion-content>

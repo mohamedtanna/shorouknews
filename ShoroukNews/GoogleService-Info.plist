@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>767709623298-5b54gsc63knu6nubu9rcsjeoi9dp3uvh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.767709623298-5b54gsc63knu6nubu9rcsjeoi9dp3uvh</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>767709623298-hs18a6r1vhh92ioj93735i48vhop9n3s.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAbrtEBQEcCzWLUxC6yn4lX1pKDrWcqF00</string>
+	<key>GCM_SENDER_ID</key>
+	<string>767709623298</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.priland.shorouknews</string>
+	<key>PROJECT_ID</key>
+	<string>shorouknewsapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>shorouknewsapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:767709623298:ios:90be0bb60cdde4d8</string>
+	<key>DATABASE_URL</key>
+	<string>https://shorouknewsapp.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-7072246965452303~1970472279</string>
+</dict>
+</plist>

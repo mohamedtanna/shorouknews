@@ -1,0 +1,62 @@
+<app-header>
+</app-header>
+
+<ion-content *ngIf="columnist">
+    <ion-refresher slot="fixed" (ionRefresh)="loadData($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-card class="ads--card">
+        <dfp-ad adUnit="/21765378867/ShorouknewsApp_LeaderBoard2" responsive >
+            <dfp-size [width]="320" [height]="50"></dfp-size>
+            <dfp-responsive [viewport]="[768,0]" [adSizes]="[[728,90]]"></dfp-responsive>
+        </dfp-ad>
+    </ion-card>
+    <!-- Breadcrumb -->
+    <ul class="breadcrumb">
+        <li>
+            <a routerLink="/home">الرئيسية</a>
+            <span class="arrow-back">&#62;</span>
+        </li>
+        <li>
+            <a routerLink="/columns/null"> رأي ومقالات</a>
+        </li>
+
+        <!-- <li class="active">
+            {{columnist.Ar_Name}}
+        </li> -->
+    </ul>
+
+    <!-- end Breadcrumb -->
+    <div class="subheader">
+        <ion-avatar slot="start">
+            <ion-img class="author-img" src="{{columnistPhoto}}"></ion-img>
+        </ion-avatar>
+    </div>
+    <div class="author-info" padding>
+        <h1>{{columnist.Ar_Name}}</h1>
+        <p>
+            {{columnist.Description}} </p>
+    </div>
+
+    <div class="new-articles">
+        <div class="title">
+            <h2>
+                <img class="svg-icon" src="/assets/images/Icons/SVG/articles.svg" alt=""> أحدث مقالات الكاتب
+            </h2>
+        </div>
+        <div class="article-area" *ngFor="let column of columns" tappable routerLink="/column-details/{{column.CDate}}/{{column.ID}}">
+            <p>
+                {{column.Title}} </p>
+            <div class="article-date">
+                <ion-icon name="calendar"></ion-icon>
+                <span> {{column.CreationDate_FormattedDate}}</span>
+            </div>
+        </div>
+    </div>
+    <ion-infinite-scroll (ionInfinite)="LoadMoreColumns($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="تحميل المزيد من المقالات...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

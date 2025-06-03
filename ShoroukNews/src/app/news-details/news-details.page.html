@@ -1,0 +1,197 @@
+<app-header BackUrl="{{backUrl}}">
+</app-header>
+<ion-content>
+    <ion-card class="ads--card">
+        <dfp-ad adUnit="/21765378867/ShorouknewsApp_LeaderBoard2">
+            <dfp-size [width]="320" [height]="50"></dfp-size>
+            <dfp-responsive [viewport]="[768,0]" [adSizes]="[[728,90]]"></dfp-responsive>
+        </dfp-ad>
+    </ion-card>
+    <!-- Breadcrumb -->
+    <ul class="breadcrumb">
+        <li>
+            <a routerLink="/home">الرئيسية</a>
+            <span class="arrow-back">&#62;</span>
+        </li>
+        <li class="active" *ngIf="newsDetails">
+            <a routerLink="/list-of-news/{{newsDetails.SectionID}}/{{newsDetails.SectionAr_Name}}">{{newsDetails.SectionAr_Name}}</a>
+        </li>
+    </ul>
+
+
+    <div *ngIf="newsDetails">
+        <ion-refresher slot="fixed" (ionRefresh)="loadData($event)">
+            <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="circles">
+            </ion-refresher-content>
+        </ion-refresher>
+        <!-- end Breadcrumb -->
+        <ion-card class="main">
+            <img src="{{newsDetails.PhotoUrl}}" />
+            <div class="card-overlay">
+                <div class="card-info">
+                    <h2 [innerHtml]="newsDetails.Title | decodeHtml"></h2>
+                </div>
+            </div>
+        </ion-card>
+        <div class="subheader" [hidden]="!newsDetails.EditorAndSource">
+            <div class="subheader-title">
+                <!-- <ion-icon name="film"></ion-icon> -->
+                {{newsDetails.EditorAndSource}}
+            </div>
+        </div>
+
+        <!-- START news-dates -->
+        <section class="news-dates">
+            <div class="publish-date">
+                <p>
+                    <ion-icon name="calendar"></ion-icon>نشر في :
+                    <span>{{newsDetails.PublishDate_FormattedDateTime}}</span>
+                </p>
+            </div>
+
+            <div class="modify-date">
+                <p>
+                    <ion-icon name="time"></ion-icon>آخر تحديث :
+                    <span> {{newsDetails.LastModificationDate_FormattedDateTime}}</span>
+                </p>
+            </div>
+        </section>
+        <!-- END news-dates -->
+
+        <ion-item class="reading-tools-area">
+            <!-- reading-tools -->
+            <ul class="reading-tools">
+                <li class="maximize">
+                    <a (click)="increaseFont();">+ع</a>
+                </li>
+                <li class="minimize">
+                    <a (click)="decreaseFont();">-ع</a>
+                </li>
+                <li class="share">
+                    <a (click)="regularShare(newsDetails.Summary,newsDetails.Title,newsDetails.CanonicalUrl)">
+                        <ion-icon class="share-icon" slot="start" color="tertiary" name="share"></ion-icon>
+                        مشاركة
+                    </a>
+                </li>
+
+            </ul>
+
+        </ion-item>
+
+        <div class="full-news" [style.font-size.px]="fontsize">
+            <div [innerHtml]="newsDetails.Body | decodeHtml:el"></div>
+        </div>
+        <div class="share-area" text-align-center>
+            <ion-button color="tertiary" fill="outline" (click)="regularShare(newsDetails.Summary,newsDetails.Title,newsDetails.CanonicalUrl)">
+                <ion-icon class="share-icon" slot="start" color="tertiary" name="share"></ion-icon>
+                مشاركة
+            </ion-button>
+        </div>
+
+
+        <section class="attached-pictures" [hidden]="newsDetails.RelatedPhotos.length<=0">
+            <ion-grid class="subheader">
+                <ion-row>
+                    <ion-col size="8" class="title">
+                        <ion-icon name="images"></ion-icon>
+                        <h4>صور متعلقة</h4>
+                    </ion-col>
+                    <ion-col size="4" class="more-btn">
+                        <ion-button class="more" (click)="presentModal()">
+                            <ion-icon class="share-icon" color="tertiary" name="search"></ion-icon>
+                            المعرض
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <div class="gallery-area">
+                <ion-slides [options]="slideOpts">
+                    <ion-slide *ngFor="let photo of newsDetails.RelatedPhotos">
+                        <ion-img src="{{photo.ThumbnailPhotoUrl}}"></ion-img>
+                    </ion-slide>
+                </ion-slides>
+            </div>
+        </section>
+
+        <section class="important-news" [hidden]="newsDetails.RelatedNews.length<=0">
+            <ion-grid class="subheader">
+                <ion-row align-items-center>
+                    <ion-col size="12" class="title">
+                        <img class="svg-icon" src="/assets/images/Icons/SVG/relatives.svg" alt="">
+                        <h4>أخبار متعلقة</h4>
+                    </ion-col>
+                    <!-- <ion-col size="3" class="more-btn">
+                                <ion-button class="more" color=" ">
+                                    <ion-icon name="add-circle-outline"></ion-icon>
+                                    المزيد
+                                </ion-button>
+                            </ion-col> -->
+                </ion-row>
+            </ion-grid>
+
+            <ion-grid class="container">
+                <ion-row>
+                    <ion-col size="6" *ngFor="let related of newsDetails.RelatedNews" routerLink="/news-details/{{related.CDate}}/{{related.ID}}">
+                        <ion-card class="main">
+                            <img src="{{related.ThumbnailPhotoUrl}}" />
+                            <div class="card-overlay">
+                                <div class="card-info">
+                                    <h6 style="font-weight:bold; font-size: 11px"> {{related.Title}} </h6>
+                                </div>
+                            </div>
+                        </ion-card>
+                    </ion-col>
+
+
+                </ion-row>
+            </ion-grid>
+        </section>
+
+
+        <ion-card class="ads--card">
+            <div class="speakol-widget" id="spk-wi-2467"></div>
+        </ion-card>
+
+        <section class="news-section" color="primary">
+            <ion-grid class="subheader">
+                <ion-row align-items-center>
+                    <ion-col size="9" class="title">
+                        <img class="svg-icon" src="/assets/images/Icons/SVG/read.svg" alt="">
+                        <h4>المزيد من الأخبار</h4>
+                    </ion-col>
+                    <ion-col size="3" class="more-btn">
+                        <ion-button class="more" color=" " routerLink="/list-of-news/{{newsDetails.SectionID}}/{{newsDetails.SectionAr_Name}}">
+                            <ion-icon name="add-circle-outline"></ion-icon>
+                            المزيد
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-list no-padding no-lines>
+                <!-- slice:0:4; let i=index -->
+                <ion-item no-lines no-padding *ngFor="let news of more_news " [hidden]="newsDetails.ID==news.ID" routerLink="/news-details/{{news.CDate}}/{{news.ID}}" tappable>
+
+
+                    <ion-thumbnail item-start margin-right>
+                        <img src="{{news.PhotoUrl}}">
+                    </ion-thumbnail>
+
+                    <div class="news-info">
+                        <p [innerHtml]="news.Title | decodeHtml">
+                        </p>
+                        <div class="news-date">
+                            <div align-items-right>
+                                <div class="day">
+                                    <ion-icon name="calendar"></ion-icon>
+                                    <span>{{news.PublishDate_FormattedDate}} - {{news.PublishDate_FormattedTime}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </ion-item>
+
+            </ion-list>
+        </section>
+    </div>
+</ion-content>

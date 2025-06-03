@@ -1,0 +1,332 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+@font-face {
+    font-family: Tajawal;
+    src: url("/assets/font/Tajawal-Regular.ttf")
+}
+
+img.svg-icon {
+    margin-bottom: -5px;
+}
+
+* {
+    font-family: "Tajawal";
+}
+
+
+/** Ionic CSS Variables **/
+
+:root {
+    .item-inner {
+        padding: 0;
+        --inner-padding-top: 0px;
+        --ion-safe-area-right: 0;
+        --inner-padding-end: 0;
+        --inner-padding-bottom: 0;
+        --inner-padding-start: 0;
+    }
+    /** primary **/
+    --ion-color-primary: #0D47A1;
+    --ion-color-primary-rgb: 13,
+    71,
+    161;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255,
+    255,
+    255;
+    --ion-color-primary-shade: #3171e0;
+    --ion-color-primary-tint: #4c8dff;
+    /** secondary **/
+    --ion-color-secondary: #043785;
+    --ion-color-secondary-rgb: 4,
+    55,
+    133;
+    --ion-color-secondary-contrast: #ffffff;
+    --ion-color-secondary-contrast-rgb: 255,
+    255,
+    255;
+    --ion-color-secondary-shade: #0bb8cc;
+    --ion-color-secondary-tint: #24d6ea;
+    /** tertiary **/
+    --ion-color-tertiary: #EE8025;
+    --ion-color-tertiary-rgb: 238,
+    128,
+    37;
+    --ion-color-tertiary-contrast: #ffffff;
+    --ion-color-tertiary-contrast-rgb: 255,
+    255,
+    255;
+    --ion-color-tertiary-shade: #FE7300;
+    --ion-color-tertiary-tint: #E9934C;
+    /** success **/
+    --ion-color-success: #10dc60;
+    --ion-color-success-rgb: 16,
+    220,
+    96;
+    --ion-color-success-contrast: #ffffff;
+    --ion-color-success-contrast-rgb: 255,
+    255,
+    255;
+    --ion-color-success-shade: #0ec254;
+    --ion-color-success-tint: #28e070;
+    /** warning **/
+    --ion-color-warning: #ffce00;
+    --ion-color-warning-rgb: 255,
+    206,
+    0;
+    --ion-color-warning-contrast: #ffffff;
+    --ion-color-warning-contrast-rgb: 255,
+    255,
+    255;
+    --ion-color-warning-shade: #e0b500;
+    --ion-color-warning-tint: #ffd31a;
+    /** danger **/
+    --ion-color-danger: #f04141;
+    --ion-color-danger-rgb: 245,
+    61,
+    61;
+    --ion-color-danger-contrast: #ffffff;
+    --ion-color-danger-contrast-rgb: 255,
+    255,
+    255;
+    --ion-color-danger-shade: #d33939;
+    --ion-color-danger-tint: #f25454;
+    /** dark **/
+    --ion-color-dark: #222428;
+    --ion-color-dark-rgb: 34,
+    34,
+    34;
+    --ion-color-dark-contrast: #ffffff;
+    --ion-color-dark-contrast-rgb: 255,
+    255,
+    255;
+    --ion-color-dark-shade: #1e2023;
+    --ion-color-dark-tint: #383a3e;
+    /** medium **/
+    --ion-color-medium: #989aa2;
+    --ion-color-medium-rgb: 152,
+    154,
+    162;
+    --ion-color-medium-contrast: #ffffff;
+    --ion-color-medium-contrast-rgb: 255,
+    255,
+    255;
+    --ion-color-medium-shade: #86888f;
+    --ion-color-medium-tint: #a2a4ab;
+    /** light **/
+    --ion-color-light: #f4f5f8;
+    --ion-color-light-rgb: 244,
+    244,
+    244;
+    --ion-color-light-contrast: #000000;
+    --ion-color-light-contrast-rgb: 0,
+    0,
+    0;
+    --ion-color-light-shade: #d7d8da;
+    --ion-color-light-tint: #f5f6f9;
+}
+
+// General Style
+ion-header {
+    ion-toolbar {
+        --background: var(--ion-color-primary);
+        --color: #fff;
+        ion-title {
+            text-align: center;
+            width: 40%;
+            margin: auto;
+            &.title-md {
+                margin-top: 10px;
+            }
+            &.title-ios {
+                padding: 0 0px;
+                position: relative;
+                margin-top: 15px;
+            }
+        }
+        .sc-ion-buttons-ios-s ion-button,
+        ion-menu-button {
+            color: #fff;
+        }
+    }
+    ion-icon.settings {
+        width: 30px;
+        height: 30px;
+    }
+    // Customise for IOS
+    .sc-ion-card-ios-h {
+        margin: 10px
+    }
+    &.header-ios ion-toolbar {
+        padding: 5px 0;
+    }
+}
+
+// Style for Menu
+ion-menu {
+    --background: #0D47A1;
+    ion-list,
+    .list-md {
+        padding: 0;
+    }
+    .border-bottom {
+        border-bottom: 2px solid#ee8025;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .border-top {
+        border-top: 2px solid#ee8025;
+    }
+    ion-header {
+        ion-toolbar {
+            --background: var(--ion-color-primary);
+            ion-title {
+                text-align: center;
+                width: 40%;
+                margin: auto;
+                margin-bottom: 25px;
+                padding-top: 50px;
+                margin-top: -4px!important;
+                background: var(--ion-color-tertiary);
+                &.title-ios {
+                    width: 60%;
+                    margin-top: 0px !important;
+                    padding: 23px 20px;
+                    position: relative;
+                }
+            }
+            .menu-sittings-btn {
+                text-align: center;
+                margin-bottom: 25px;
+                display: block;
+                font-weight: bold;
+                ion-button {
+                    font-weight: bold;
+                    ion-icon {
+                        margin-left: 7px;
+                    }
+                }
+            }
+        }
+        // Customise for IOS
+        .sc-ion-card-ios-h {
+            margin: 10px
+        }
+        &.header-ios ion-toolbar {
+            padding: 0;
+            margin-top: -4px;
+        }
+        &.header-md:after {
+            width: 0;
+        }
+    }
+    .item.sc-ion-label-ios-h,
+    .item .sc-ion-label-ios-h,
+    .item.sc-ion-label-md-h,
+    .item .sc-ion-label-md-h {
+        font-family: 'Tajawal', sans-serif;
+    }
+    ion-content {
+        --background: #0D47A1;
+        ion-list.social-list {
+            background: #0D47A1;
+            padding: 35px 0 20px;
+            text-align: center;
+            &.list-ios {
+                padding: 0px;
+                margin-bottom: 0;
+            }
+            img {
+                margin: auto 10px;
+                width: 15%;
+            }
+        }
+    }
+    // ion-item {
+    //     --background: var(--ion-item-background,var(--ion-background-color,#0D47A1));
+    //     --color: var(--ion-item-color,var(--ion-text-color,white));
+    //     font-weight: bold;
+    //     ion-label {
+    //         // margin-right: 20px;
+    //         padding: 4px 0px;
+    //         margin: -4px 20px -4px 0;
+    //     }
+    // }
+    button {
+        background: #0D47A1;
+        color: #fff;
+        font-weight: bold;
+        display: inline-block;
+        width: 100%;
+        line-height: 3;
+        text-align: right;
+        margin-top: 0;
+        margin-bottom: 0;
+        ion-label {
+            // margin-right: 20px;
+            padding: 4px 0px;
+            margin: -4px 20px -4px 0;
+            font-size: 16px;
+        }
+    }
+    ion-list div:nth-child(odd) button {
+        background: #0B3F90
+    }
+}
+
+// ion-loading{
+//     // background-color: var(--ion-backdrop-color,white);
+//        //background-color:  var(--ion-backdrop-color,rgba(0, 0, 0, 0.1));
+// }
+.loading-md .loading-wrapper {
+    border-radius: 2px;
+    padding: 24px;
+    max-width: 280px;
+    max-height: 90%;
+    background: transparent;
+    color: var(--ion-text-color-step-150, #0B3F90);
+    font-size: 3em;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.swiper-pagination.swiper-pagination-bullets {
+    --bullet-background-active: var(--ion-color-tertiary)!important;
+}
+
+ion-spinner {
+    width: 65px;
+    height: 69px;
+    color: var(--ion-color-tertiary);
+}
+
+.refresher-refreshing-icon {
+    ion-spinner {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+.infinite-loading-spinner {
+    ion-spinner {
+        width: 40px;
+        height: 26px;
+    }
+}
+
+.ads--card {
+    text-align: center;
+    margin: 0 !important;
+}
+
+dfp-ad {
+    margin: 10px auto;
+    display: inline-block;
+}
+
+ion-list.list.list-ios {
+    margin-bottom: 0;
+}
+h4{
+    font-weight: bolder !important;
+}

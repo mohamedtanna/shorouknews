@@ -1,0 +1,52 @@
+ion-content {  
+    --padding-top: 2rem;
+    --padding-bottom: 2rem;
+    --padding-start: 2rem;
+    --padding-end: 2rem;
+    --background:rgba(51, 51, 51, 0.9);
+    --bullet-background-active 	: var(--ion-color-tertiary);
+    --bullet-background: #fff;
+
+ } 
+  
+ion-list{
+    --padding-start: var(--ion-padding, 16px);
+    --padding-end: var(--ion-padding, 16px);
+    --padding-top: var(--ion-padding, 16px);
+    --padding-bottom: var(--ion-padding, 16px);
+    padding: var(--ion-padding, 0px);
+    background: rgba(34, 36, 40, 0);
+    margin-top: 20px;
+} 
+
+ion-item {
+    // --background: #444;
+}
+img {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+     height: 50vh;
+    //object-fit: contain;
+} 
+
+.swiper-pagination{
+    bottom:0!important;
+}
+ion-slide {
+    padding: 0 5px;
+    margin: auto;
+}
+p.description{color:#fff;    margin-bottom: 30px;}
+
+ion-icon.close-modal{
+    width: 32px;
+    height: 32px;
+    margin-right: 15px;
+    color: #fff;
+}  
+.booking-btn{
+    height: 50px;
+    background: #fff;
+    margin: 0;
+}

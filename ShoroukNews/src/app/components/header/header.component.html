@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            <ion-button (click)="refresh()">
+                <img style="width: 90px" src="/assets/images/logo.svg">
+            </ion-button>
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button href="/settings" [hidden]="showBackButton">
+                <ion-icon class="settings" name="settings"></ion-icon>
+            </ion-button>
+
+            <!-- <ion-back-button  [defaultHref]="test"></ion-back-button> -->
+
+            <ion-button [href]="BackUrl" [hidden]="!showBackButton">
+                <ion-icon class="arrow-round-back" name="arrow-round-back" ></ion-icon>
+            </ion-button>
+
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>

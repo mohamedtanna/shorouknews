@@ -1,0 +1,43 @@
+<ion-content>
+  <div class="modal-container">
+    <ion-list class="main">
+      <ion-list-header>
+        <ion-icon (click)="dismiss()" class="close-modal" name="close"></ion-icon>
+      </ion-list-header>
+
+      <ion-slides [options]="slideOpts" pager="true">
+
+        <ion-slide *ngFor="let relatedPhoto of relatedPhotos">
+          <div>
+            <img src="{{relatedPhoto.PhotoUrl}}" />
+            <p class="description">
+             {{relatedPhoto.PhotoCaption}}
+
+            </p>
+          </div>
+        </ion-slide>
+
+        <!--<ion-slide>
+            <div>
+              <img src="/assets/images/news2.jpg" /> 
+          </div>
+          </ion-slide>
+  
+          <ion-slide>
+            <div>
+              <img src="/assets/images/news3.jpg" /> 
+            </div>
+          </ion-slide>
+  
+          <ion-slide>
+            <div>
+              <img src="/assets/images/news4.jpg" />
+            </div>
+          </ion-slide> -->
+
+      </ion-slides>
+
+    </ion-list>
+  </div>
+
+</ion-content>

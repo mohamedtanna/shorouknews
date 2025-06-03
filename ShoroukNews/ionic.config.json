@@ -1,0 +1,8 @@
+{
+  "name": "ShoroukNews",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "d9a01337"
+}

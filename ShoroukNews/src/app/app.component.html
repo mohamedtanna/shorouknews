@@ -1,0 +1,139 @@
+<ion-app>
+    <ion-split-pane>
+        <ion-menu side="end">
+
+            <ion-header>
+                <ion-toolbar>
+                    <ion-title>
+                        <img src="/assets/images/Shorouk-Logo-White-2.png">
+                    </ion-title>
+                    <ion-buttons class="menu-sittings-btn">
+                        <ion-menu-toggle auto-hide="false">
+                            <ion-button menuClose href="/settings">
+                                <ion-icon class="settings" name="settings"></ion-icon>
+                                الإعدادات
+                            </ion-button>
+                        </ion-menu-toggle>
+                    </ion-buttons>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content>
+                <ion-list>
+                    <ion-menu-toggle auto-hide="true">
+
+                        <div>
+                            <button ion-item class="border-bottom" [routerDirection]="'root'" routerLink="/home">
+                <ion-label>
+                  الرئيسية
+                </ion-label>
+              </button>
+                        </div>
+
+                        <div>
+                            <button ion-item class="border-bottom" [routerDirection]="'root'" routerLink="/columns/null">
+                <ion-label>
+                  رأي ومقالات
+                </ion-label>
+              </button>
+                        </div>
+
+                        <div>
+                            <button ion-item class="border-bottom" [routerDirection]="'root'" routerLink="/list-of-news/null/أحدث الأخبار">
+                <ion-label>
+                  أحدث الأخبار
+                </ion-label>
+              </button>
+                        </div>
+
+                        <div *ngFor="let section of sections">
+                            <button ion-item [routerDirection]="'root'" routerLink="/list-of-news/{{section.ID}}/{{section.Ar_Name}}">
+                <ion-label>
+                  {{section.Ar_Name}}
+                </ion-label>
+              </button>
+                        </div>
+
+                        <div>
+                            <button ion-item class="border-top" [routerDirection]="'root'" routerLink="/videos">
+                <ion-label>
+                  فيديو
+                </ion-label>
+              </button>
+                        </div>
+
+                        <div>
+                            <button ion-item class="border-top" [routerDirection]="'root'" routerLink="/newsletter">
+                <ion-label>
+                  القائمة البريدية
+                </ion-label>
+              </button>
+                        </div>
+
+                        <div>
+                            <button ion-item class="border-top" [routerDirection]="'root'" routerLink="/contact">
+                <ion-label>
+                  اتصل بنا
+                </ion-label>
+              </button>
+                        </div>
+
+                        <div>
+                            <button ion-item class="border-top" [routerDirection]="'root'" routerLink="/terms">
+                <ion-label>
+                  شروط الاستخدام
+                </ion-label>
+              </button>
+                        </div>
+                        <div>
+                            <button ion-item class="border-top" [routerDirection]="'root'" routerLink="/privacy">
+                <ion-label>
+                  سياسية الخصوصية
+                </ion-label>
+              </button>
+                        </div>
+
+
+                        <div>
+                            <button ion-item class="border-top" [routerDirection]="'root'" routerLink="/about">
+                <ion-label>
+                  عن البرنامج </ion-label>
+              </button>
+                        </div>
+
+                        <!-- <div>
+              <button ion-item class="border-top" [routerDirection]="'root'" routerLink="/test">
+                <ion-label>
+                  test </ion-label>
+              </button>
+            </div> -->
+
+                    </ion-menu-toggle>
+                </ion-list>
+
+                <ion-list class="social-list">
+                    <!-- Social media Icons -->
+                    <a onclick="window.open('https://www.facebook.com/shorouknews', '_system', 'location=yes');return false; " target="_blank">
+                        <img src="/assets/images/Icons/social/facebook_sign.svg" alt="">
+                    </a>
+
+                    <a onclick="window.open('https://www.youtube.com/channel/UCGONWo6kCXGwtyA8SHrHIAw', '_system', 'location=yes');return false; " target="_blank">
+                        <img src="/assets/images/Icons/social/youtube_sign.svg" alt="">
+                    </a>
+
+
+                    <a onclick="window.open('https://twitter.com/#!/shorouk_news', '_system', 'location=yes');return false; " target="_blank">
+                        <img src="/assets/images/Icons/social/twitter_sign.svg" alt="">
+                    </a>
+
+
+
+                    <!-- <a onclick="window.open('', '_system', 'location=yes');return false; " target="_blank">
+            <img src="/assets/images/Icons/social/youtube_sign.svg" alt="">
+          </a> -->
+
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet main></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

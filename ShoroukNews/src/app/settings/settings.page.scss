@@ -1,0 +1,77 @@
+/* Breadcrumb */
+
+.breadcrumb {
+    display: inline-block;
+    width: 100%;
+    padding: 5px 15px;
+    list-style: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: normal;
+    border-bottom: 4px solid var(--ion-color-tertiary);
+    color: #000;
+    overflow: hidden;
+    li {
+        display: inline-block;
+        color: #000;
+    }
+    a {
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .arrow-back {
+        padding: 0 10px;
+        color: #222;
+        font-weight: bolder;
+    }
+    @media (max-width: 600px) {
+        & {
+            margin-left: -30%;
+        }
+    }
+    .view-container {
+        overflow: hidden;
+    }
+    .share {
+        float: left
+    }
+}
+
+.settings-container {
+    h1 {
+        margin-top: 0;
+        color: var(--ion-color-primary);
+        font-size: 20px;
+    }
+    ion-lable,
+    .item.sc-ion-label-md-h,
+    .item .sc-ion-label-md-h {
+        font-family: 'Tajawal', sans-serif;
+    }
+    ion-toggle {
+        padding-right: 0;
+    }
+    ion-icon {
+        margin-left: 5px;
+    }
+    ion-list.list.list-ios {
+        margin-bottom: 0;
+    }
+    @media (max-width:385px) {
+        h1 {
+            font-size: 15px;
+            margin-bottom: -10px;
+        }
+        ion-item {
+            margin-left: -20px;
+            margin-right: -8px;
+            padding: 0;
+            font-size: 16px;
+        }
+        ion-row:last-of-type {
+            ion-button.ion-color {
+                font-size: 11px
+            }
+        }
+    }
+}

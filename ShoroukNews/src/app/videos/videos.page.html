@@ -1,0 +1,65 @@
+<app-header>
+</app-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="loadData($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-card class="ads--card">
+        <dfp-ad adUnit="/21765378867/ShorouknewsApp_LeaderBoard2" responsive>
+            <dfp-size [width]="320" [height]="50"></dfp-size>
+            <dfp-responsive [viewport]="[768,0]" [adSizes]="[[728,90]]"></dfp-responsive>
+        </dfp-ad>
+    </ion-card>
+
+    <section class="videos-section">
+
+        <!-- Breadcrumb -->
+        <ul class="breadcrumb">
+            <li>
+                <a routerLink="/home">الرئيسية</a>
+                <span class="arrow-back">&#62;</span>
+            </li>
+            <li class="active">فيديو </li>
+            <!-- <li class="share">
+                <a  (click)="shareVideo(">
+                    مشاركة
+                    <ion-icon class="share-icon" color="tertiary" name="share"></ion-icon>
+                </a>
+            </li> -->
+        </ul>
+        <!-- end Breadcrumb -->
+        <div class="subheader">
+            <div class="subheader-title">
+                <!-- <ion-icon name="film"></ion-icon> -->
+                <img class="video-icon" src="/assets/images/Icons/SVG/video.svg" alt=""> فيديو الشروق
+            </div>
+        </div>
+        <ion-list no-padding no-lines>
+            <a *ngFor="let video of videos">
+                <ion-item no-padding routerLink="/video-details/{{video.ID}}" tappable>
+                    <ion-thumbnail item-start margin-right>
+                        <img src="{{video.ThumbUrl}}">
+                        <img class="video-icon" src="/assets/images/Icons/SVG/video.svg" alt="">
+                    </ion-thumbnail>
+                    <div class="video-info">
+                        <p>
+                            {{video.Title}}
+                        </p>
+                        <div class="video-date">
+                            <ion-icon name="calendar"></ion-icon>
+                            <span>{{video.PublishDate_FormattedDate}}</span>
+                        </div>
+                    </div>
+                </ion-item>
+            </a>
+        </ion-list>
+    </section>
+    <ion-infinite-scroll (ionInfinite)="loadMoreData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="تحميل المزيد من الفيديوهات...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+</ion-content>

@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<ion-content>
+
+  <ion-card class="ads--card">
+    <dfp-ad adUnit="/21765378867/ShorouknewsApp_LeaderBoard2" responsive >
+      <dfp-size [width]="320" [height]="50"></dfp-size>
+      <dfp-responsive [viewport]="[768,0]" [adSizes]="[[728,90]]"></dfp-responsive>
+    </dfp-ad>
+  </ion-card>
+
+
+  <ul class="breadcrumb" padding>
+    <li>
+      <a routerLink="/home">الرئيسية</a>
+      <span class="arrow-back">&#62;</span>
+    </li>
+    <li class="active">
+      القائمة البريدية
+    </li>
+  </ul>
+
+  <p padding>لتصلك نشرتنا الإخبارية أدخل بريدك الإليكتروني للاشتراك في الخدمة </p>
+
+  <form novalidate [formGroup]="form">
+
+    <ion-item float-left>
+      <ion-label position="floating">بريدك الإليكتروني</ion-label>
+      <ion-input formControlName="Email" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-button (click)="addToNewsletter()" [disabled]="!form.valid" color="primary">
+        <span>اشترك</span>
+      </ion-button>
+    </ion-item>
+  </form>
+
+</ion-content>
